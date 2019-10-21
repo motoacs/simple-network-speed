@@ -12,9 +12,9 @@
 <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">Download Speed</h1>
+      <h1 class="title">Simple SpeedTest</h1>
       <div class="notification">
-        <p class="subtitle is-6">テストファイルサイズ</p>
+        <p style="margin-bottom:6px;">テストファイルサイズ</p>
         <div class="control" id="size">
           <label class="radio">
             <input type="radio" name="size" value="2">
@@ -33,8 +33,7 @@
             100MB
           </label>
         </div>
-        <br/>
-        <p class="subtitle is-6">テスト回数</p>
+        <p style="margin-bottom:6px; margin-top:14px;">テスト回数</p>
         <div class="control" id="times">
           <label class="radio">
             <input type="radio" name="times" value="1">
@@ -55,30 +54,33 @@
         </div>
       </div>
       
-      <div class="columns">
-        <div class="column is-3">
+      <div class="columns is-mobile">
+        <div class="column">
             現在
         </div>
-        <div class="column is-7" id="speed"></div>
+        <div class="column" id="speed"></div>
       </div>
-      <div class="columns">
-        <div class="column is-3">
+      <div class="columns is-mobile">
+        <div class="column">
             平均
         </div>
-        <div class="column is-7" id="average"></div>
+        <div class="column" id="average"></div>
       </div>
-      <div class="columns">
-        <div class="column is-3">
+      <div class="columns is-mobile">
+        <div class="column">
             データ使用量
         </div>
-        <div class="column is-7" id="used"></div>
+        <div class="column" id="used"></div>
       </div>
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="column">
-          <button id="start" class="button is-primary">START</button>
-          <button id="stop" class="button">STOP</button>
+          <button id="start" class="button is-primary" style="margin-right:4px; width:120px;">START</button>
+          <button id="stop" class="button is-danger" style="margin-right:4px;">STOP</button>
+          <button id="reset" class="button">RESET</button>
         </div>
       </div>
+      <br/>
+      <a href="../">Back to Top</a>
     </div>
   </section>
 </body>

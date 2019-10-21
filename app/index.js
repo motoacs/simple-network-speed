@@ -17,7 +17,7 @@ const download = () => {
   var startT = new Date();
   var endT, msec, speed, average;
   var startSizeByte = testFileSizeByte;
-  var saartSize = testFileSize;
+  var startSize = testFileSize;
 
   $.get(`${testFilePath}?time=${new Date().getTime()}`).done(() => {
     endT = new Date();
@@ -25,7 +25,7 @@ const download = () => {
     usedSize += startSizeByte;
 
     // 現在のスピード
-    speed = Number((saartSize / (msec / 1000)).toFixed(2));
+    speed = Number((startSize / (msec / 1000)).toFixed(2));
     $('#speed').text(`${speed} Mbps`);
     log.push(speed);
 
@@ -75,6 +75,10 @@ $('#stop').on('click', () => {
   if (!proc) return;
   proc = false;
   $('#stop').addClass('is-loading');
+});
+
+$('#reset').on('click', () => {
+  location.reload(true);
 });
 
 $('input[name="size"]').on('change', function () {
