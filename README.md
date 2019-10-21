@@ -18,6 +18,12 @@
 
 
 
+## Example
+
+ https://motoacs.github.io/simple-network-speed/app/
+
+
+
 ## 機能
 
 - テストファイルのサイズを2MB～100MBで変更
