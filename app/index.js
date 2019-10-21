@@ -6,22 +6,26 @@ let testFileSize = testFileSizeByte * 8;
 // global vars
 let proc = false; // テスト継続フラグ
 let log = []; // テスト結果を入れていくところ
+let usedSize = 0;
 
 let testTimes = 3;
-let times = 1;
+let t = 1;
 
 
 // main
 const download = () => {
   var startT = new Date();
   var endT, msec, speed, average;
+  var startSizeByte = testFileSizeByte;
+  var saartSize = testFileSize;
 
   $.get(`${testFilePath}?time=${new Date().getTime()}`).done(() => {
     endT = new Date();
     msec = endT.getTime() - startT.getTime();
+    usedSize += startSizeByte;
 
     // 現在のスピード
-    speed = Number((testFileSize / (msec / 1000)).toFixed(2));
+    speed = Number((saartSize / (msec / 1000)).toFixed(2));
     $('#speed').text(`${speed} Mbps`);
     log.push(speed);
 
@@ -30,12 +34,15 @@ const download = () => {
     average = Number(average.toFixed(2));
     $('#average').text(`${average} Mbps`);
 
+    // 使用量
+    $('#used').text(`${usedSize} MB`);
+
     // 配列が長くなりすぎないように
     if (log.length > 49) log.pop();
 
     // 続けていい？
-    if (testTimes === 0 || testTimes > times) {
-      times += 1;
+    if (testTimes === 0 || testTimes > t) {
+      t += 1;
       if (proc) download();
       else {
         $('#start, #stop').removeClass('is-loading');
@@ -57,7 +64,7 @@ const download = () => {
 // Event Handlers
 $('#start').on('click', () => {
   if (proc) return;
-  times = 1;
+  t = 1;
   log = [];
   proc = true;
   download();
