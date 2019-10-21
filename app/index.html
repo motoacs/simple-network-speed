@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SimpleSpeedTest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.css">
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Download Speed</h1>
+      <div class="notification">
+        <p class="subtitle is-6">テストファイルサイズ</p>
+        <div class="control" id="size">
+          <label class="radio">
+            <input type="radio" name="size" value="2">
+            2MB
+          </label>
+          <label class="radio">
+            <input type="radio" name="size" value="10" checked>
+            10MB
+          </label>
+          <label class="radio">
+            <input type="radio" name="size" value="50">
+            50MB
+          </label>
+          <label class="radio">
+            <input type="radio" name="size" value="100">
+            100MB
+          </label>
+        </div>
+        <br/>
+        <p class="subtitle is-6">テスト回数</p>
+        <div class="control" id="times">
+          <label class="radio">
+            <input type="radio" name="times" value="1">
+            1
+          </label>
+          <label class="radio">
+            <input type="radio" name="times" value="3" checked>
+            3
+          </label>
+          <label class="radio">
+            <input type="radio" name="times" value="5">
+            5
+          </label>
+          <label class="radio">
+            <input type="radio" name="times" value="0">
+            ∞
+          </label>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-3">
+            現在
+        </div>
+        <div class="column is-7" id="speed"></div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+            平均
+        </div>
+        <div class="column is-7" id="average"></div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <button id="start" class="button is-primary">START</button>
+          <button id="stop" class="button">STOP</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
